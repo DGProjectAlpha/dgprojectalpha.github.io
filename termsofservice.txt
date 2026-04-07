@@ -1,0 +1,63 @@
+UltraCalendar Terms of Service
+
+Last updated: April 7, 2026
+
+ACCEPTANCE OF TERMS
+
+By downloading, installing, or using UltraCalendar, you agree to these Terms of Service. If you do not agree, do not use the app.
+
+DESCRIPTION OF SERVICE
+
+UltraCalendar is a calendar application that syncs with your Google Calendar, Tasks, and Contacts to display events, tasks, and birthdays on your Android device. The app includes home screen widgets and optional premium features.
+
+LICENSE
+
+We grant you a limited, non-exclusive, non-transferable, revocable license to use UltraCalendar for personal, non-commercial purposes on Android devices you own or control.
+
+USER ACCOUNTS
+
+UltraCalendar uses Google Sign-In to access your calendar data. You are responsible for maintaining the security of your Google account. We are not liable for any loss resulting from unauthorized access to your account.
+
+IN-APP PURCHASES
+
+UltraCalendar offers optional premium features available through a one-time in-app purchase. All purchases are processed through Google Play and are subject to Google Play's terms and refund policies.
+
+ADVERTISEMENTS
+
+The free version of UltraCalendar displays advertisements powered by Google AdMob. Premium users enjoy an ad-free experience.
+
+INTELLECTUAL PROPERTY
+
+All content, design, code, and branding associated with UltraCalendar are the property of the UltraCalendar team. You may not copy, modify, distribute, or reverse-engineer any part of the app.
+
+PROHIBITED USE
+
+You agree not to:
+- Use the app for any unlawful purpose
+- Attempt to reverse-engineer, decompile, or disassemble the app
+- Interfere with or disrupt the app's functionality
+- Use the app to infringe on the rights of others
+
+DISCLAIMER OF WARRANTIES
+
+UltraCalendar is provided "as is" without warranties of any kind, express or implied. We do not guarantee uninterrupted or error-free operation. Calendar data accuracy depends on your Google account and Google's services.
+
+LIMITATION OF LIABILITY
+
+To the maximum extent permitted by law, the UltraCalendar team shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the app.
+
+TERMINATION
+
+We reserve the right to terminate or suspend your access to UltraCalendar at any time, without notice, for conduct that we believe violates these terms or is harmful to other users or the app.
+
+CHANGES TO TERMS
+
+We may update these terms at any time. Continued use of the app after changes constitutes acceptance of the new terms.
+
+GOVERNING LAW
+
+These terms are governed by the laws of the United States.
+
+CONTACT
+
+Email: dgprojectalpha@gmail.com
