@@ -3,18 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGProjectAlpha</title>
+    <title>UltraCalendar — DGProjectAlpha</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; color: #333; }
-        h1 { font-size: 1.5rem; }
-        a { color: #1a73e8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 8px;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .badge {
+            display: inline-block;
+            margin-top: 16px;
+        }
+        .badge a img {
+            height: 60px;
+        }
+        section {
+            margin-bottom: 36px;
+        }
+        section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        section p {
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+        .links-list li {
+            margin-bottom: 10px;
+        }
+        .links-list a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+        .features {
+            list-style: disc;
+            padding-left: 24px;
+            color: #555;
+        }
+        .features li {
+            margin-bottom: 6px;
+        }
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        footer a { color: #1a73e8; text-decoration: none; }
     </style>
 </head>
 <body>
-    <h1>DGProjectAlpha</h1>
-    <p>Developer of <strong>UltraCalendar</strong> for Android.</p>
-    <ul>
-        <li><a href="privacypolicy.txt">Privacy Policy</a></li>
-    </ul>
+    <header>
+        <h1>UltraCalendar</h1>
+        <p>A beautiful Material 3 calendar app for Android with home screen widgets</p>
+        <div class="badge">
+            <a href="https://play.google.com/store/apps/details?id=com.dgprojectalpha.ultracalendar">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="60">
+            </a>
+        </div>
+    </header>
+
+    <section>
+        <h2>About</h2>
+        <p>UltraCalendar syncs with your Google Calendar, Tasks, and Contacts to display events, tasks, and birthdays in a clean, modern interface. Includes four customizable home screen widgets with Material 3 dynamic theming.</p>
+    </section>
+
+    <section>
+        <h2>Features</h2>
+        <ul class="features">
+            <li>Google Calendar, Tasks, and Contacts birthday sync</li>
+            <li>Four widget styles: Dynamic, Simple, Month, and Flip</li>
+            <li>Material 3 Expressive design with dynamic wallpaper theming</li>
+            <li>Light, Dark, and AMOLED display modes</li>
+            <li>Month list bird's-eye view</li>
+            <li>Customizable notifications with snooze</li>
+            <li>Premium: custom color themes, widget transparency, ad-free experience</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How We Use Your Data</h2>
+        <p>UltraCalendar accesses your Google Calendar events, Tasks, and Contacts birthdays solely to display them within the app and widgets. All data is stored locally on your device. We never transmit your personal data to external servers. No Google user data is used for advertising, analytics, or any purpose beyond the app's calendar functionality.</p>
+        <p>For complete details, please read our <a href="privacypolicy.txt">Privacy Policy</a>.</p>
+    </section>
+
+    <section>
+        <h2>Legal</h2>
+        <ul class="links-list">
+            <li><a href="privacypolicy.txt">Privacy Policy</a></li>
+            <li><a href="termsofservice.txt">Terms of Service</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:dgprojectalpha@gmail.com">dgprojectalpha@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DGProjectAlpha. All rights reserved.</p>
+        <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </footer>
 </body>
 </html>

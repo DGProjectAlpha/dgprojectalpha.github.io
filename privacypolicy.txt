@@ -1,52 +1,94 @@
 UltraCalendar Privacy Policy
 
-Last updated: March 19, 2026
+Last updated: April 7, 2026
 
 INTRODUCTION
 
-UltraCalendar is developed by the UltraCalendar team and is committed to protecting your privacy.
+UltraCalendar ("the App") is developed by DGProjectAlpha and is committed to protecting your privacy. This privacy policy explains how we access, use, store, and share information when you use UltraCalendar.
 
-INFORMATION WE ACCESS
+GOOGLE USER DATA
 
-With permission, the app accesses:
-- Google Calendar events (titles, times, locations, descriptions)
-- Google Tasks and task lists
-- Google Contacts birthday dates only
+UltraCalendar accesses the following Google user data with your explicit permission:
 
-The App requests only the minimum permissions necessary to provide calendar sync functionality.
+1. Google Calendar Events — We read your calendar event titles, times, locations, descriptions, and attendee lists to display them within the app and home screen widgets.
+
+2. Google Tasks — We read your task lists and individual tasks (titles, due dates, completion status) to display them alongside your calendar events.
+
+3. Google Contacts Birthdays — We read birthday dates from your Google Contacts to display birthday reminders in your calendar view.
+
+4. Basic Profile Information — We access your Google account email address and display name for account identification within the app.
+
+HOW WE USE YOUR DATA
+
+All Google user data is used exclusively to:
+- Display your calendar events, tasks, and birthdays in the app interface
+- Show upcoming events and tasks in home screen widgets
+- Send local notifications for upcoming events and tasks
+- Allow you to create, edit, and delete events and tasks through the app
+
+We do NOT use your Google user data for:
+- Advertising or ad targeting
+- Analytics or user profiling
+- Training machine learning models
+- Any purpose unrelated to the app's core calendar functionality
 
 DATA STORAGE
 
-All data retrieved from your Google account is stored locally on your device only. Calendar information remains in a local database and is never sent to external servers.
+All calendar data retrieved from your Google account is stored locally on your device only. This includes:
+- A local SQLite database containing cached calendar events, tasks, and birthdays
+- App preferences stored in Android DataStore on your device
+
+No Google user data is transmitted to, stored on, or processed by any external servers controlled by DGProjectAlpha or any third party.
+
+DATA SHARING
+
+UltraCalendar does NOT share, sell, transmit, or disclose your Google user data to any third parties. Your calendar events, tasks, contacts, and personal information never leave your device.
 
 THIRD-PARTY SERVICES
 
-UltraCalendar does not share, sell, or transmit your personal calendar data to any third-party services or servers. The app uses Google AdMob to display non-personalized advertisements. AdMob may collect device identifiers (Advertising ID) for ad serving purposes. No calendar, task, or contact data is shared with advertisers.
+Google AdMob: The free version of UltraCalendar displays non-personalized advertisements powered by Google AdMob. AdMob may collect device identifiers (Android Advertising ID) for ad serving purposes. No calendar, task, contact, or personal Google user data is shared with AdMob or any advertisers. Premium users enjoy a fully ad-free experience.
+
+Google Play Billing: In-app purchase transactions are processed by Google Play. DGProjectAlpha does not collect or store any payment information.
 
 AUTHENTICATION
 
-Google account authentication is handled entirely by Google's official sign-in service. The app never accesses or stores your password; authentication tokens are managed by Android.
+Google account authentication is handled entirely by Google's official sign-in service using OAuth 2.0. The app never accesses, sees, or stores your Google account password. Authentication tokens are managed securely by the Android operating system.
+
+PERMISSIONS
+
+The app requests only the minimum permissions necessary:
+- Internet access: Required to sync with Google Calendar, Tasks, and Contacts
+- Calendar read/write: Required to display and manage your calendar events
+- Account access: Required for Google Sign-In authentication
 
 ANALYTICS AND TRACKING
 
-UltraCalendar does not use any analytics services, tracking pixels, crash reporting tools, or any other form of usage monitoring.
+UltraCalendar does not use any analytics services, tracking pixels, crash reporting tools, or any other form of usage monitoring or data collection beyond what is described in this policy.
 
 ADVERTISING
 
-The free version of UltraCalendar displays advertisements powered by Google AdMob. Ads appear as native cards within the calendar interface. Users may dismiss ads temporarily. Premium users who purchase the customization upgrade enjoy an ad-free experience. The app uses the Android Advertising ID for ad serving. No personal calendar data is used for ad targeting.
+The free version of UltraCalendar displays advertisements powered by Google AdMob. Ads appear as native cards within the calendar interface. Users may dismiss individual ads temporarily. Premium users who purchase the customization upgrade enjoy an ad-free experience. The app uses the Android Advertising ID solely for ad serving. No personal data, calendar data, or Google user data is used for ad targeting or personalization.
 
 DATA RETENTION AND DELETION
 
-Uninstalling removes all associated data. Users can also clear app data through device Settings.
+All app data is stored locally on your device. Uninstalling UltraCalendar removes all associated data, including cached calendar information and app preferences. You can also clear app data at any time through your device's Settings > Apps > UltraCalendar > Clear Data.
 
 REVOKING ACCESS
 
-Access can be revoked at myaccount.google.com/permissions.
+You can revoke UltraCalendar's access to your Google account at any time by visiting https://myaccount.google.com/permissions. Once revoked, the app will no longer be able to sync your calendar data.
 
 CHILDREN'S PRIVACY
 
-UltraCalendar is not directed at children under the age of 13.
+UltraCalendar is not directed at children under the age of 13 and does not knowingly collect information from children.
+
+CHANGES TO THIS POLICY
+
+We may update this privacy policy from time to time. Any changes will be reflected by updating the "Last updated" date at the top of this policy. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.
 
 CONTACT
 
+If you have any questions or concerns about this privacy policy or our data practices, please contact us at:
+
 Email: dgprojectalpha@gmail.com
+Developer: DGProjectAlpha
+Website: https://dgprojectalpha.github.io
