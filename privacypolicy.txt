@@ -1,0 +1,52 @@
+UltraCalendar Privacy Policy
+
+Last updated: March 19, 2026
+
+INTRODUCTION
+
+UltraCalendar is developed by the UltraCalendar team and is committed to protecting your privacy.
+
+INFORMATION WE ACCESS
+
+With permission, the app accesses:
+- Google Calendar events (titles, times, locations, descriptions)
+- Google Tasks and task lists
+- Google Contacts birthday dates only
+
+The App requests only the minimum permissions necessary to provide calendar sync functionality.
+
+DATA STORAGE
+
+All data retrieved from your Google account is stored locally on your device only. Calendar information remains in a local database and is never sent to external servers.
+
+THIRD-PARTY SERVICES
+
+UltraCalendar does not share, sell, or transmit your personal calendar data to any third-party services or servers. The app uses Google AdMob to display non-personalized advertisements. AdMob may collect device identifiers (Advertising ID) for ad serving purposes. No calendar, task, or contact data is shared with advertisers.
+
+AUTHENTICATION
+
+Google account authentication is handled entirely by Google's official sign-in service. The app never accesses or stores your password; authentication tokens are managed by Android.
+
+ANALYTICS AND TRACKING
+
+UltraCalendar does not use any analytics services, tracking pixels, crash reporting tools, or any other form of usage monitoring.
+
+ADVERTISING
+
+The free version of UltraCalendar displays advertisements powered by Google AdMob. Ads appear as native cards within the calendar interface. Users may dismiss ads temporarily. Premium users who purchase the customization upgrade enjoy an ad-free experience. The app uses the Android Advertising ID for ad serving. No personal calendar data is used for ad targeting.
+
+DATA RETENTION AND DELETION
+
+Uninstalling removes all associated data. Users can also clear app data through device Settings.
+
+REVOKING ACCESS
+
+Access can be revoked at myaccount.google.com/permissions.
+
+CHILDREN'S PRIVACY
+
+UltraCalendar is not directed at children under the age of 13.
+
+CONTACT
+
+Email: dgprojectalpha@gmail.com
