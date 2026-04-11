@@ -1,6 +1,6 @@
 UltraCalendar Privacy Policy
 
-Last updated: April 7, 2026
+Last updated: April 11, 2026
 
 INTRODUCTION
 
@@ -49,6 +49,10 @@ THIRD-PARTY SERVICES
 Google AdMob: The free version of UltraCalendar displays non-personalized advertisements powered by Google AdMob. AdMob may collect device identifiers (Android Advertising ID) for ad serving purposes. No calendar, task, contact, or personal Google user data is shared with AdMob or any advertisers. Premium users enjoy a fully ad-free experience.
 
 Google Play Billing: In-app purchase transactions are processed by Google Play. DGProjectAlpha does not collect or store any payment information.
+
+SECURITY
+
+We implement appropriate technical and organizational security procedures to protect the confidentiality and integrity of your data. All communication between the app and Google's services is encrypted using industry-standard TLS/HTTPS protocols. Authentication tokens are stored securely by the Android operating system's credential storage. We do not transmit your data over unencrypted channels. While no method of transmission or storage is 100% secure, we take reasonable measures to protect your information against unauthorized access, alteration, disclosure, or destruction.
 
 AUTHENTICATION
 
