@@ -1,6 +1,6 @@
 UltraCalendar Privacy Policy
 
-Last updated: April 11, 2026
+Last updated: April 13, 2026
 
 INTRODUCTION
 
@@ -58,12 +58,25 @@ AUTHENTICATION
 
 Google account authentication is handled entirely by Google's official sign-in service using OAuth 2.0. The app never accesses, sees, or stores your Google account password. Authentication tokens are managed securely by the Android operating system.
 
+WEATHER AND LOCATION DATA
+
+UltraCalendar offers an optional weather feature that displays current weather conditions in the calendar interface. This feature can be configured in three modes:
+
+- Automatic: The app uses your device's GPS to determine your current location and fetch local weather data from the Open-Meteo weather API (open-meteo.com). Only geographic coordinates (latitude and longitude) are sent to the weather API — no personal information, device identifiers, or account data is included in weather requests.
+
+- Custom Location: You may manually enter a city or location name. The app uses the Open-Meteo geocoding API to convert the location name into coordinates, which are then used to fetch weather data. The location name and resolved coordinates are stored locally on your device only.
+
+- Off: Weather functionality is completely disabled. No location data is accessed or transmitted.
+
+All weather and location data is stored exclusively on your device. We do not collect, store, transmit, or share your location data with any external servers controlled by DGProjectAlpha or any third party. Weather data is cached locally for up to 3 hours to minimize network usage and battery consumption.
+
 PERMISSIONS
 
 The app requests only the minimum permissions necessary:
 - Internet access: Required to sync with Google Calendar, Tasks, and Contacts
 - Calendar read/write: Required to display and manage your calendar events
 - Account access: Required for Google Sign-In authentication
+- Location access (optional): Required only if you enable the Automatic weather feature
 
 ANALYTICS AND TRACKING
 
