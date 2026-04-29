@@ -156,6 +156,9 @@
                 <li>Display-layer dedup safety net across events, tasks, and birthdays — a backstop that prevents the same item appearing twice from cross-source data (e.g. Google + CalDAV mirroring)</li>
                 <li>Google Tasks sync now dedupes within a batch (mirrors the existing event-sync guard)</li>
                 <li>Pull-merge ordering fixed — inserts/updates run before deletes inside the sync transaction, eliminating brief "row gone" flashes for widgets and observers</li>
+                <li>Fixed widget colors not applying — picking a seed color, toggling dynamic color, adjusting transparency, or setting manual colors now updates home-screen widgets immediately on the first try, no remove-and-re-add required</li>
+                <li>Fixed widget color picker rejecting opaque colors — every user-picked color was silently falling back to the default purple-grey scheme due to a sign-extension bug</li>
+                <li>Debounced widget color/transparency changes — rapid slider/wheel adjustments now coalesce into a single refresh so the final value always wins</li>
             </ul>
         </div>
 
