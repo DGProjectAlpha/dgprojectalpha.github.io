@@ -144,6 +144,22 @@
         <h2>Changelog</h2>
 
         <div class="changelog-entry">
+            <h3>v1.7.1.1</h3>
+            <p class="date">04/29/2026</p>
+            <ul>
+                <li>Multiple reminders per item — events, tasks, birthdays, and routines now support up to 5 reminders each, configured as removable chips with a "+ Add notification" button (Google Calendar style)</li>
+                <li>Fixed duplicate recurring events — when you move a single occurrence of a recurring meeting in Google Calendar, the modified instance no longer shows up alongside the original time slot</li>
+                <li>Fixed "deleted events come back" — locally deleted events waiting to push to Google are no longer overwritten by incoming sync data</li>
+                <li>Fixed shared calendars across multiple Google accounts — event lookups are now scoped per account, so two signed-in accounts sharing a calendar can't clobber each other's rows</li>
+                <li>First-time Google sync now pulls events from -20 years to +10 years (previously ±1 year), matching CalDAV — older imported events from past flights/appointments will now show up</li>
+                <li>Database-level uniqueness on synced tasks and birthdays — prevents the rare duplicate-row case from a sync that crashes mid-write</li>
+                <li>Display-layer dedup safety net across events, tasks, and birthdays — a backstop that prevents the same item appearing twice from cross-source data (e.g. Google + CalDAV mirroring)</li>
+                <li>Google Tasks sync now dedupes within a batch (mirrors the existing event-sync guard)</li>
+                <li>Pull-merge ordering fixed — inserts/updates run before deletes inside the sync transaction, eliminating brief "row gone" flashes for widgets and observers</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
             <h3>v1.7.1</h3>
             <p class="date">04/29/2026</p>
             <ul>
