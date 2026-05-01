@@ -144,6 +144,30 @@
         <h2>Changelog</h2>
 
         <div class="changelog-entry">
+            <h3>v1.7.2</h3>
+            <p class="date">05/01/2026</p>
+            <ul>
+                <li>"Mark as done" button on task &amp; routine reminder notifications — tap once to complete without opening the app</li>
+                <li>Per-widget color customization — pick distinct colors for each widget on your home screen with live previews that match the actual widget layout</li>
+                <li>Reservation cards — flight, hotel, and dining events pulled from Google Calendar now render with rich details and a clickable description</li>
+                <li>"Open Gmail" button on reservation cards — jumps directly into the Gmail app (not the browser) to the original confirmation email</li>
+                <li>FROM_GMAIL fallback card — reservations linked to Gmail without full structured data still surface a tappable card</li>
+                <li>Paywall redesigned — replaced the alert dialog with a bottom sheet that lists premium features at a glance</li>
+                <li>Bolder month banners and auto-collapse of expanded events when you scroll the agenda</li>
+                <li>Smooth FAB color crossfade and removed the circular ripple on event cards for a cleaner tap feel</li>
+                <li>Long-press haptic when entering bulk-delete mode</li>
+                <li>Reset button on the App Colors screen — one tap returns to system dynamic-color defaults</li>
+                <li>Widgets now respect your app's dark/light theme preference instead of always following system</li>
+                <li>Calendar widget renders only the rows the current month actually needs — no more empty trailing weeks</li>
+                <li>Fixed widgets not refreshing immediately after an app upgrade</li>
+                <li>Fixed end-of-animation pixel shift on month-view cards — no more tiny visible "settle" jump</li>
+                <li>Fixed widget colors silently falling back when ARGB values were stored as negative Longs</li>
+                <li>CalDAV upserts now scope per account, preventing cross-account collisions</li>
+                <li>Birthday reminders reschedule correctly after device reboot; 0-minute reminders fire on time; widget dedup parity across all sources; localized reminder labels</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
             <h3>v1.7.1.1</h3>
             <p class="date">04/29/2026</p>
             <ul>
