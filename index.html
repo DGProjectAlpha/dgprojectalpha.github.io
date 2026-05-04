@@ -144,6 +144,23 @@
         <h2>Changelog</h2>
 
         <div class="changelog-entry">
+            <h3>v1.7.2.1</h3>
+            <p class="date">05/04/2026</p>
+            <ul>
+                <li>Recurring events now fire reminders on every occurrence — previously only the first occurrence ever notified, then the chain went silent forever (and a reboot couldn't rescue it)</li>
+                <li>Recurring tasks now fire reminders on every occurrence too — same bug, same fix, parity with events</li>
+                <li>All-day events stay on the correct day — fixed the spillover bug where saved all-day events showed up on the day before and after after a calendar refresh</li>
+                <li>All-day events stop "stretching" when edited — opening and re-saving an all-day event no longer adds a phantom extra day each time</li>
+                <li>New time-of-day picker for all-day reminders — pick the exact HH:mm to be notified (defaults to 06:00 local), tap to change, "+" to add up to 5 reminders; replaces the meaningless "30 minutes before" for events with no real start time</li>
+                <li>Birthdays use the same all-day time picker, defaulting to 06:00 local</li>
+                <li>Legacy all-day events opened in the editor automatically get a 06:00 default reminder so saving doesn't silently wipe out alarms</li>
+                <li>CalDAV recurring events now save — the Save button was silently doing nothing when "repeats" was on for a CalDAV calendar; toggling repeat on/off mid-edit also cleans up properly</li>
+                <li>CalDAV events that were previously invisible now appear — events stored as "starts at X, lasts this long" (instead of "starts at X, ends at Y") were being filtered out of every list and view</li>
+                <li>CalDAV recurring events keep their real length — they were being silently clamped to 60 minutes regardless of the actual duration</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
             <h3>v1.7.2</h3>
             <p class="date">05/01/2026</p>
             <ul>
