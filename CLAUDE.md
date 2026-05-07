@@ -11,7 +11,6 @@ The site hosts:
 
 ## CLAUDE.md Maintenance Rule
 **Update this file whenever:** new pages added, site structure changes, or significant content/functionality added that isn't documented here. This file is the source of truth for any agent working on this project.
-- AdMob / Google advertising verification (`app-ads.txt`)
 
 ## Directory Structure
 
@@ -64,10 +63,10 @@ To deploy: push to `main` branch on GitHub. GitHub Pages auto-deploys within ~1 
 
 ## App Context (UltraCalendar)
 
-UltraCalendar is a Material 3 Android calendar app. Current version: **v1.6** (as of changelog). Key features referenced on the site:
+UltraCalendar is a Material 3 Android calendar app. Current version: **v1.7.2.2** (versionCode 29). Key features referenced on the site:
 - Google Calendar, Tasks, and Contacts sync
-- Routines with streak tracking (v1.6)
-- 6 widget styles: Dynamic, Simple, Month, Flip, Routine Banner, Routine Square
+- Routines with streak tracking and heatmap
+- 8 widget styles: Dynamic, Simple, Month, DualMonth, Flip, UpcomingDays, Routine Banner, Routine Square
 - Weather via Open-Meteo
 - Premium tier ($0.99): custom colors, widget transparency, routine heatmap, ad-free
 - Monetization: AdMob banner/native ads, in-app purchase for premium

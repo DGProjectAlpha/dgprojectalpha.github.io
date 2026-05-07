@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UltraCalendar — DGProjectAlpha</title>
+  <meta name="description" content="A Material 3 Android calendar with Google sync, customizable widgets, routines, and weather. Available on Google Play.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:          #080810;
+      --surface:     #0e0e1c;
+      --surface-2:   #14142a;
+      --accent:      #6366f1;
+      --accent-end:  #8b5cf6;
+      --text:        #e2e2f2;
+      --text-muted:  #6464a0;
+      --border:      rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,8,16,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .nav-app {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-right a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--text); }
+
+    .nav-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-end));
+      color: #fff !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-play:hover { opacity: 0.88 !important; transform: translateY(-1px) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.16) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(139,92,246,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-end));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 48px rgba(99,102,241,0.3);
+    }
+
+    .hero-version {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.22);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      background: linear-gradient(180deg, #fff 50%, rgba(255,255,255,0.5));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-badge a {
+      display: inline-block;
+      transition: transform 0.2s, opacity 0.2s;
+      border-radius: 8px;
+    }
+    .hero-badge a:hover { transform: translateY(-2px); opacity: 0.88; }
+    .hero-badge img { height: 64px; display: block; }
+
+    .hero-chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrap {
+      padding: 72px 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .feature-card:hover {
+      border-color: rgba(99,102,241,0.25);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .feature-premium {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 8px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f59e0b;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.2);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* ── PRIVACY ── */
+    .privacy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .privacy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-end));
+      border-radius: 2px 2px 0 0;
+    }
+
+    .privacy-card p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .privacy-card p:last-child { margin-bottom: 0; }
+    .privacy-card a { color: var(--accent); text-decoration: none; }
+    .privacy-card a:hover { text-decoration: underline; }
+
+    /* ── CHANGELOG ── */
+    .changelog-list { display: flex; flex-direction: column; gap: 0; }
+
+    .cl-entry {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .cl-entry:last-child { border-bottom: none; }
+
+    .cl-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 2px;
+    }
+
+    .cl-version {
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.01em;
+    }
+
+    .cl-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .cl-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cl-body ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .cl-body ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Collapsed changelog */
+    .changelog-collapse {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .changelog-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 10px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .changelog-toggle:hover {
+      border-color: rgba(99,102,241,0.3);
+      color: var(--text);
+      background: var(--surface-2);
+    }
+
+    .toggle-arrow {
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .changelog-toggle.open .toggle-arrow { transform: rotate(180deg); }
+
+    /* ── LEGAL / CONTACT ── */
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .legal-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .legal-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .legal-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .legal-links a:hover { opacity: 0.75; }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* stagger children */
+    .features-grid .feature-card { transition-delay: calc(var(--i, 0) * 0.055s); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .cl-entry { grid-template-columns: 1fr; gap: 8px; }
+      .legal-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      nav { padding: 0 16px; }
+      .nav-right a:not(.nav-play) { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-back">← DGProjectAlpha</a>
+    <span class="nav-app">UltraCalendar</span>
+    <div class="nav-right">
+      <a href="#changelog">Changelog</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dgprojectalpha.ultracalendar" class="nav-play" target="_blank" rel="noopener">▶ Get App</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-icon">📅</div>
+      <div class="hero-version">✦ Latest: v1.7.2.5</div>
+      <h1>UltraCalendar</h1>
+      <p>A Material 3 Android calendar that syncs with Google, tracks your routines, and puts everything on your home screen — exactly how you want it.</p>
+      <div class="hero-badge">
+        <a href="https://play.google.com/store/apps/details?id=com.dgprojectalpha.ultracalendar" target="_blank" rel="noopener">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <div class="hero-chips">
+        <div class="chip">📱 Android</div>
+        <div class="chip">🎨 Material 3</div>
+        <div class="chip">🌙 AMOLED</div>
+        <div class="chip">🌤 Weather</div>
+        <div class="chip">🌍 12 Languages</div>
+        <div class="chip">⭐ Free with Premium</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ── FEATURES ── -->
+  <div class="section-wrap">
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Everything your day needs.</h2>
+
+    <div class="features-grid">
+      <div class="feature-card fade-up" style="--i:0">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Google Calendar Sync</div>
+        <div class="feature-desc">Full two-way sync with Google Calendar including recurring events, incremental updates, and multi-account support.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:1">
+        <span class="feature-icon">✅</span>
+        <div class="feature-title">Google Tasks</div>
+        <div class="feature-desc">Tasks sync and complete directly to Google Tasks in real time. Multi-account isolated, never mixed up.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:2">
+        <span class="feature-icon">🎂</span>
+        <div class="feature-title">Birthday Sync</div>
+        <div class="feature-desc">Contact birthdays appear automatically with age labels and customizable reminder times.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:3">
+        <span class="feature-icon">🔄</span>
+        <div class="feature-title">Routines &amp; Streaks</div>
+        <div class="feature-desc">Daily, weekly, or custom habits with streak tracking, completion animations, and a premium GitHub-style heatmap.</div>
+        <div class="feature-premium">⭐ Heatmap is Premium</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:4">
+        <span class="feature-icon">🌤</span>
+        <div class="feature-title">Weather Overlay</div>
+        <div class="feature-desc">Hourly forecasts from Open-Meteo with GPS location, overlaid directly on your calendar view.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:5">
+        <span class="feature-icon">📱</span>
+        <div class="feature-title">8 Widget Styles</div>
+        <div class="feature-desc">Dynamic, Simple, Month, DualMonth, Flip, UpcomingDays, Routine Banner, and Routine Square — all resizable.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:6">
+        <span class="feature-icon">🎨</span>
+        <div class="feature-title">Material 3 Dynamic Theming</div>
+        <div class="feature-desc">Colors adapt to your wallpaper automatically. Custom color picker with full wheel and hex input for premium users.</div>
+        <div class="feature-premium">⭐ Custom Colors: Premium</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:7">
+        <span class="feature-icon">🌙</span>
+        <div class="feature-title">AMOLED Mode</div>
+        <div class="feature-desc">True pure-black mode for OLED screens. Free for all users. Light, Dark, and AMOLED — your choice.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:8">
+        <span class="feature-icon">🔍</span>
+        <div class="feature-title">Universal Search</div>
+        <div class="feature-desc">Find events, tasks, routines, and birthdays across your entire calendar from any screen.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:9">
+        <span class="feature-icon">🔔</span>
+        <div class="feature-title">Smart Notifications</div>
+        <div class="feature-desc">Up to 5 reminders per item. Custom time-of-day for all-day events. Snooze, "Mark as done" from notification.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:10">
+        <span class="feature-icon">☁️</span>
+        <div class="feature-title">CalDAV Support</div>
+        <div class="feature-desc">Sync with any CalDAV server including DAVx5 and local calendars. Full recurring event support.</div>
+      </div>
+      <div class="feature-card fade-up" style="--i:11">
+        <span class="feature-icon">✈️</span>
+        <div class="feature-title">Reservation Cards</div>
+        <div class="feature-desc">Flights, hotels, and dining pulled from Google Calendar render as rich cards with a direct Gmail link.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ── PRIVACY ── -->
+  <div class="section-wrap">
+    <p class="section-label">Privacy</p>
+    <h2 class="section-title">Your data stays on your device.</h2>
+    <div class="privacy-card">
+      <p>UltraCalendar accesses your Google Calendar events, Tasks, and Contacts birthdays solely to display them within the app and widgets. All data is stored locally on your device — we never transmit your personal data to external servers.</p>
+      <p>No Google user data is used for advertising, analytics, or any purpose beyond the app's calendar functionality.</p>
+      <p>For complete details, read our <a href="../privacypolicy.txt">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ── CHANGELOG ── -->
+  <div class="section-wrap" id="changelog">
+    <p class="section-label">Changelog</p>
+    <h2 class="section-title">What's new.</h2>
+
+    <div class="changelog-list">
+
+      <!-- ── VISIBLE: latest 3 ── -->
+      <div class="cl-entry">
+        <div class="cl-meta">
+          <div class="cl-version">v1.7.2.5</div>
+          <div class="cl-date">May 7, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Birthday off-by-one fix — birthday events no longer leak into the previous day</li>
+          <li>Events, tasks, and birthdays deleted on Google are now properly removed locally during sync</li>
+          <li>Birthday events no longer duplicate across adjacent days</li>
+          <li>Streamlined birthday sync reliability — eliminated unreliable calendar list lookups</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
+          <div class="cl-version">v1.7.2.4</div>
+          <div class="cl-date">May 6, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Birthday sync now fetches correctly using singleEvents=true with a 2-year time window</li>
+          <li>Birthday deduplication uses stable recurringEventId instead of per-instance event IDs</li>
+          <li>Birthday age labels no longer show incorrect "born in 2026" for current-year instances</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
+          <div class="cl-version">v1.7.2.3</div>
+          <div class="cl-date">May 6, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Google's Birthdays calendar is now discoverable (was hidden by default)</li>
+          <li>Hidden and shared calendars now sync correctly</li>
+          <li>Empty calendar list fallback to primary calendar instead of syncing nothing</li>
+          <li>Recurring task BYDAY patterns now expand to the correct weekdays</li>
+          <li>Fixed all-day event duplicates caused by UTC timezone mismatch</li>
+        </ul></div>
+      </div>
+
+      <!-- ── COLLAPSIBLE: rest ── -->
+      <div class="changelog-collapse" id="cl-more">
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.2</div>
+            <div class="cl-date">May 4, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Calendar widget no longer cuts off the last days of months that span 6 rows — May 31st and similar dates now always display on compact widgets</li>
+            <li>Task checkboxes added to Month view day sheet and Day detail screen — mark tasks complete from any view</li>
+            <li>Checking a task now cancels all pending reminders for it across all views — no more phantom alarms after completion</li>
+            <li>Completed recurring tasks stop rescheduling future alarms</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.1</div>
+            <div class="cl-date">May 4, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Recurring events now fire reminders on every occurrence — previously only the first occurrence ever notified</li>
+            <li>Recurring tasks now fire reminders on every occurrence too — parity with events</li>
+            <li>All-day events stay on the correct day — fixed the spillover bug where events showed on adjacent days after refresh</li>
+            <li>All-day events stop "stretching" when edited — re-saving no longer adds a phantom extra day each time</li>
+            <li>New time-of-day picker for all-day reminders — pick exact HH:mm, up to 5 reminders, defaults to 06:00 local</li>
+            <li>Birthdays use the same all-day time picker, defaulting to 06:00 local</li>
+            <li>Legacy all-day events auto-get a 06:00 default reminder so saving doesn't silently wipe alarms</li>
+            <li>CalDAV recurring events now save — Save button was silently doing nothing when repeats was enabled</li>
+            <li>CalDAV events stored as "starts at X, lasts this long" now appear correctly in all views</li>
+            <li>CalDAV recurring events keep their real length — no longer silently clamped to 60 minutes</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2</div>
+            <div class="cl-date">May 1, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>"Mark as done" button on task &amp; routine reminder notifications — tap once to complete without opening the app</li>
+            <li>Per-widget color customization — pick distinct colors for each widget with live previews</li>
+            <li>Reservation cards — flight, hotel, and dining events from Google Calendar render with rich details</li>
+            <li>"Open Gmail" button on reservation cards — jumps directly into Gmail to the original confirmation email</li>
+            <li>FROM_GMAIL fallback card for reservations without full structured data</li>
+            <li>Paywall redesigned as a bottom sheet listing premium features at a glance</li>
+            <li>Bolder month banners and auto-collapse of expanded events when scrolling agenda</li>
+            <li>Smooth FAB color crossfade and removed circular ripple on event cards</li>
+            <li>Long-press haptic when entering bulk-delete mode</li>
+            <li>Reset button on App Colors screen — one tap returns to system dynamic-color defaults</li>
+            <li>Widgets now respect app's dark/light theme preference instead of always following system</li>
+            <li>Calendar widget renders only rows the current month actually needs</li>
+            <li>Fixed widgets not refreshing immediately after an app upgrade</li>
+            <li>Fixed end-of-animation pixel shift on month-view cards</li>
+            <li>Fixed widget colors silently falling back when ARGB values stored as negative Longs</li>
+            <li>CalDAV upserts now scope per account, preventing cross-account collisions</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.1.1</div>
+            <div class="cl-date">Apr 29, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Multiple reminders per item — events, tasks, birthdays, and routines now support up to 5 reminders each</li>
+            <li>Fixed duplicate recurring events — modified instances no longer show alongside their original time slot</li>
+            <li>Fixed "deleted events come back" — locally deleted events no longer overwritten by incoming sync data</li>
+            <li>Fixed shared calendars across multiple Google accounts — lookups now scoped per account</li>
+            <li>First-time Google sync now pulls from -20 years to +10 years (previously ±1 year)</li>
+            <li>Database-level uniqueness on synced tasks and birthdays — prevents rare duplicate-row from mid-write crash</li>
+            <li>Display-layer dedup across events, tasks, and birthdays — backstop for cross-source collisions</li>
+            <li>Google Tasks sync now dedupes within a batch</li>
+            <li>Pull-merge ordering fixed — inserts/updates run before deletes, eliminating brief "row gone" flashes</li>
+            <li>Fixed widget colors not applying — picking a color now updates widgets immediately on the first try</li>
+            <li>Fixed widget color picker rejecting opaque colors due to sign-extension bug</li>
+            <li>Debounced widget color/transparency changes — rapid adjustments coalesce into a single refresh</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.1</div>
+            <div class="cl-date">Apr 29, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Added universal search — find events, tasks, habits, and birthdays from any screen</li>
+            <li>New "Upcoming" home screen widget — 3-day agenda strip with expandable events/habits view</li>
+            <li>Bulk delete — long-press to multi-select; FAB turns red trash with count badge and confirmation dialog</li>
+            <li>Polished FAB animation — shrink-morph plus button, bouncy spring, tap-outside-to-close</li>
+            <li>Main header now left-justifies and auto-shrinks on small/large-DPI screens</li>
+            <li>Calendar widget events list shows ALL events (no more 5-item cap), sorts chronologically</li>
+            <li>Widget bug sweep — fixed alphabetic time sorting, multi-day all-day events, chronological routines</li>
+            <li>Fixed CalDAV recurring event delete dialog hiding the "this event only" option</li>
+            <li>Fixed CalDAV soft-delete tombstones piling up in local database</li>
+            <li>Fixed navigation flash when returning to main calendar from drawer screens</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7</div>
+            <div class="cl-date">Apr 28, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Added CalDAV / DAVx5 / local calendar sync</li>
+            <li>Fixed animation bugs</li>
+            <li>Fixed widget bugs</li>
+            <li>Added option to select default screen on open</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.6.2.4</div>
+            <div class="cl-date">Apr 17, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Fixed Google API Authentication resetting OAuth Token</li>
+            <li>Native ad cards added to Agenda view</li>
+            <li>Fixed cut-out corner bug on list item cards across Agenda, Month List, and main calendar</li>
+            <li>Added "Open in Maps" button to events in Agenda view</li>
+            <li>Replaced back buttons with hamburger menu on drawer-accessible screens</li>
+            <li>Agenda top bar now updates month/year while scrolling</li>
+            <li>Tapping a routine in Agenda now opens the proper routine panel</li>
+            <li>Double underline indicator on main calendar dates that have items</li>
+            <li>Filter checklist added to main screen (Events/Tasks/Birthdays/Routines)</li>
+            <li>Horizontal slide transitions between drawer screens</li>
+            <li>Fixed month title centering in main header</li>
+            <li>Shared view models across drawer screens — no more empty-state flash on navigation</li>
+            <li>Widgets now refresh colors instantly on theme, dynamic color, and dark/light mode changes</li>
+            <li>Expanded widget resize ranges</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.6.2</div>
+            <div class="cl-date">Apr 14, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>AdMob bug fixes</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.6.1</div>
+            <div class="cl-date">Apr 13, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Bug fixes</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.6</div>
+            <div class="cl-date">Apr 10, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>New: Routines — build daily, weekly, or custom habits with streak tracking and completion animations</li>
+            <li>Routines appear on the main calendar alongside events, tasks, and birthdays</li>
+            <li>Two new home screen widgets: Routine Banner and Routine Square</li>
+            <li>Premium: GitHub-style heatmap for routine history and unlimited routines (free: up to 5)</li>
+            <li>Weather integration — daily forecast from Open-Meteo with GPS location</li>
+            <li>Category filter moved from main screen to Month List header</li>
+            <li>Defensive DataStore reads/writes to survive corrupted preferences</li>
+            <li>100+ bug fixes and performance improvements</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.6</div>
+            <div class="cl-date">Apr 9, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Fixed vibration options not setting properly</li>
+            <li>Fixed banner widget displaying events from wrong dates</li>
+            <li>Updated event creation screen: end date auto-matches start date, end time auto-sets to +1 hour</li>
+            <li>Fixed localization strings not being pulled correctly (30+ hardcoded strings moved to translations)</li>
+            <li>Fixed task date sync from Google API to convert UTC to local timezone</li>
+            <li>Added "Open in Maps" option for events with a location</li>
+            <li>Added configurable first day of week (Sunday, Monday, Saturday)</li>
+            <li>Added scrollable list to banner widget</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.5</div>
+            <div class="cl-date">Apr 8, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Fixed recurring events (weekly, monthly, yearly) not showing across months</li>
+            <li>Full RRULE support: intervals, count limits, BYDAY, BYMONTHDAY</li>
+            <li>Delete single occurrence or entire recurring series</li>
+            <li>Two-way recurring event sync with Google Calendar</li>
+            <li>Incremental sync with per-calendar sync tokens (faster syncs)</li>
+            <li>Fixed all-day event date handling at timezone boundaries</li>
+            <li>Task completion now syncs to Google Tasks</li>
+            <li>Multi-account task isolation</li>
+            <li>Safe database migrations (no more data loss on update)</li>
+            <li>Premium: custom color picker with full color wheel and hex input</li>
+            <li>Seed mode (one color generates full palette) or Manual mode (pick each color individually)</li>
+            <li>20 bug fixes across sync, events, tasks, and birthdays</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.4</div>
+            <div class="cl-date">Apr 8, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Firebase Cloud Messaging for push notifications</li>
+            <li>Firebase Analytics integration</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.3</div>
+            <div class="cl-date">Apr 8, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Dual-month side-by-side widget</li>
+            <li>Dutch language support (12th language)</li>
+            <li>Banner ad preloading for instant display</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.2</div>
+            <div class="cl-date">Apr 7, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Localized to 10 languages (Spanish, Portuguese, Hindi, Arabic, German, French, Japanese, Korean, Turkish, Indonesian)</li>
+            <li>GDPR/EU ad consent with UMP SDK</li>
+            <li>About screen with privacy and data usage info</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5.1</div>
+            <div class="cl-date">Apr 7, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Free AMOLED pure-black mode for app and all widgets</li>
+            <li>Widget transparency slider (premium)</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.5</div>
+            <div class="cl-date">Apr 7, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Native ad cards in day views, Material 3 styled and dismissible</li>
+            <li>Premium removes all ads</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.4</div>
+            <div class="cl-date">Mar 24, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>4 widget styles: Dynamic, Simple, Month, and Flip</li>
+            <li>Widget picker previews</li>
+            <li>Widget date taps open main calendar</li>
+            <li>Battery optimization with adaptive sync</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.3</div>
+            <div class="cl-date">Mar 21, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Google Play Integrity API</li>
+            <li>Advertising ID permission for AdMob</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.2</div>
+            <div class="cl-date">Mar 21, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>In-app premium purchase ($0.99) for custom colors and notifications</li>
+            <li>AdMob ad integration</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.1</div>
+            <div class="cl-date">Mar 21, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Initial release</li>
+            <li>Google Calendar, Tasks, and Contacts birthday sync</li>
+            <li>Material 3 dynamic theming</li>
+            <li>Interactive home screen widget</li>
+            <li>Month collapse/expand gestures</li>
+            <li>Customizable notifications with snooze</li>
+          </ul></div>
+        </div>
+
+      </div><!-- /changelog-collapse -->
+
+    </div><!-- /changelog-list -->
+
+    <button class="changelog-toggle" id="cl-toggle" aria-expanded="false">
+      Show 22 more versions <span class="toggle-arrow">↓</span>
+    </button>
+
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ── LEGAL / CONTACT ── -->
+  <div class="section-wrap">
+    <p class="section-label">Legal &amp; Contact</p>
+    <h2 class="section-title">Fine print &amp; reach out.</h2>
+
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h3>Legal</h3>
+        <ul class="legal-links">
+          <li><a href="../privacypolicy.txt">Privacy Policy</a></li>
+          <li><a href="../termsofservice.txt">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="legal-card">
+        <h3>Contact</h3>
+        <ul class="legal-links">
+          <li><a href="mailto:dgprojectalpha@gmail.com">dgprojectalpha@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">DGProjectAlpha</a>
+      <p class="footer-copy">
+        &copy; 2026 DGProjectAlpha. All rights reserved.<br>
+        Google Play and the Google Play logo are trademarks of Google LLC.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Changelog toggle
+    const toggle = document.getElementById('cl-toggle');
+    const collapse = document.getElementById('cl-more');
+    let open = false;
+
+    toggle.addEventListener('click', () => {
+      open = !open;
+      if (open) {
+        collapse.style.maxHeight = collapse.scrollHeight + 'px';
+        toggle.classList.add('open');
+        toggle.innerHTML = 'Show fewer versions <span class="toggle-arrow">↓</span>';
+      } else {
+        collapse.style.maxHeight = '0';
+        toggle.classList.remove('open');
+        toggle.innerHTML = 'Show 22 more versions <span class="toggle-arrow">↓</span>';
+        // scroll back up to changelog heading after collapse
+        document.getElementById('changelog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+
+</body>
+</html>
