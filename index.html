@@ -144,6 +144,39 @@
         <h2>Changelog</h2>
 
         <div class="changelog-entry">
+            <h3>v1.7.2.5</h3>
+            <p class="date">05/07/2026</p>
+            <ul>
+                <li>Birthday off-by-one fix — birthday events no longer leak into the previous day</li>
+                <li>Events, tasks, and birthdays deleted on Google are now properly removed locally during sync</li>
+                <li>Birthday events no longer duplicate across adjacent days</li>
+                <li>Streamlined birthday sync reliability — eliminated unreliable calendar list lookups</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.7.2.4</h3>
+            <p class="date">05/06/2026</p>
+            <ul>
+                <li>Birthday sync now fetches correctly using singleEvents=true with a 2-year time window</li>
+                <li>Birthday deduplication uses stable recurringEventId instead of per-instance event IDs</li>
+                <li>Birthday age labels no longer show incorrect "born in 2026" for current-year instances</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.7.2.3</h3>
+            <p class="date">05/06/2026</p>
+            <ul>
+                <li>Google's Birthdays calendar is now discoverable (was hidden by default)</li>
+                <li>Hidden and shared calendars now sync correctly</li>
+                <li>Empty calendar list fallback to primary calendar instead of syncing nothing</li>
+                <li>Recurring task BYDAY patterns now expand to the correct weekdays</li>
+                <li>Fixed all-day event duplicates caused by UTC timezone mismatch</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
             <h3>v1.7.2.2</h3>
             <p class="date">05/04/2026</p>
             <ul>
