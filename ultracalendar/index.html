@@ -519,7 +519,7 @@
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div class="hero-icon">📅</div>
-      <div class="hero-version">✦ Latest: v1.7.2.5</div>
+      <div class="hero-version">✦ Latest: v1.7.2.8</div>
       <h1>UltraCalendar</h1>
       <p>A Material 3 Android calendar that syncs with Google, tracks your routines, and puts everything on your home screen — exactly how you want it.</p>
       <div class="hero-badge">
@@ -636,45 +636,81 @@
       <!-- ── VISIBLE: latest 3 ── -->
       <div class="cl-entry">
         <div class="cl-meta">
-          <div class="cl-version">v1.7.2.5</div>
+          <div class="cl-version">v1.7.2.8</div>
+          <div class="cl-date">May 12, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Color picker accuracy — picking red now produces red; scheme hue-rotation is now opt-in via a new recipe selector (Content / Vibrant / TonalSpot / Expressive)</li>
+          <li>Widget transparency slider now goes to 100% (was capped at 90%)</li>
+          <li>Wallpaper-aware text contrast — widget text auto-adjusts for readability when transparency is 50% or higher</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
+          <div class="cl-version">v1.7.2.7</div>
+          <div class="cl-date">May 11, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Event/Task/Birthday/Routine editors fully redesigned — editable title header, floating account picker, underlined date/time rows, and bottom sheet pickers</li>
+          <li>Tapping a date in split or month view now pre-fills that date in all creation screens</li>
+          <li>Fixed missing imports causing compile errors in Birthday and Task editor screens</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
+          <div class="cl-version">v1.7.2.6</div>
           <div class="cl-date">May 7, 2026</div>
         </div>
         <div class="cl-body"><ul>
-          <li>Birthday off-by-one fix — birthday events no longer leak into the previous day</li>
-          <li>Events, tasks, and birthdays deleted on Google are now properly removed locally during sync</li>
-          <li>Birthday events no longer duplicate across adjacent days</li>
-          <li>Streamlined birthday sync reliability — eliminated unreliable calendar list lookups</li>
-        </ul></div>
-      </div>
-
-      <div class="cl-entry">
-        <div class="cl-meta">
-          <div class="cl-version">v1.7.2.4</div>
-          <div class="cl-date">May 6, 2026</div>
-        </div>
-        <div class="cl-body"><ul>
-          <li>Birthday sync now fetches correctly using singleEvents=true with a 2-year time window</li>
-          <li>Birthday deduplication uses stable recurringEventId instead of per-instance event IDs</li>
-          <li>Birthday age labels no longer show incorrect "born in 2026" for current-year instances</li>
-        </ul></div>
-      </div>
-
-      <div class="cl-entry">
-        <div class="cl-meta">
-          <div class="cl-version">v1.7.2.3</div>
-          <div class="cl-date">May 6, 2026</div>
-        </div>
-        <div class="cl-body"><ul>
-          <li>Google's Birthdays calendar is now discoverable (was hidden by default)</li>
-          <li>Hidden and shared calendars now sync correctly</li>
-          <li>Empty calendar list fallback to primary calendar instead of syncing nothing</li>
-          <li>Recurring task BYDAY patterns now expand to the correct weekdays</li>
-          <li>Fixed all-day event duplicates caused by UTC timezone mismatch</li>
+          <li>CalDAV all-day events now save correctly — previously failed silently; now falls back to Room on provider rejection</li>
+          <li>Toggling a timed event to all-day no longer leaves a stale timezone, preventing events from syncing a day early</li>
+          <li>Recurring all-day events now use the correct RFC 5545 duration format (PXD), fixing rejection by strict CalDAV servers</li>
         </ul></div>
       </div>
 
       <!-- ── COLLAPSIBLE: rest ── -->
       <div class="changelog-collapse" id="cl-more">
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.5</div>
+            <div class="cl-date">May 7, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Birthday off-by-one fix — birthday events no longer leak into the previous day</li>
+            <li>Events, tasks, and birthdays deleted on Google are now properly removed locally during sync</li>
+            <li>Birthday events no longer duplicate across adjacent days</li>
+            <li>Streamlined birthday sync reliability — eliminated unreliable calendar list lookups</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.4</div>
+            <div class="cl-date">May 6, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Birthday sync now fetches correctly using singleEvents=true with a 2-year time window</li>
+            <li>Birthday deduplication uses stable recurringEventId instead of per-instance event IDs</li>
+            <li>Birthday age labels no longer show incorrect "born in 2026" for current-year instances</li>
+          </ul></div>
+        </div>
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.3</div>
+            <div class="cl-date">May 6, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Google's Birthdays calendar is now discoverable (was hidden by default)</li>
+            <li>Hidden and shared calendars now sync correctly</li>
+            <li>Empty calendar list fallback to primary calendar instead of syncing nothing</li>
+            <li>Recurring task BYDAY patterns now expand to the correct weekdays</li>
+            <li>Fixed all-day event duplicates caused by UTC timezone mismatch</li>
+          </ul></div>
+        </div>
 
         <div class="cl-entry">
           <div class="cl-meta">
