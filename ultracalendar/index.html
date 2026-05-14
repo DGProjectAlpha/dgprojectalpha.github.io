@@ -519,7 +519,7 @@
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div class="hero-icon">📅</div>
-      <div class="hero-version">✦ Latest: v1.7.2.9</div>
+      <div class="hero-version">✦ Latest: v2.0</div>
       <h1>UltraCalendar</h1>
       <p>A Material 3 Android calendar that syncs with Google, tracks your routines, and puts everything on your home screen — exactly how you want it.</p>
       <div class="hero-badge">
@@ -636,6 +636,24 @@
       <!-- ── VISIBLE: latest 3 ── -->
       <div class="cl-entry">
         <div class="cl-meta">
+          <div class="cl-version">v2.0</div>
+          <div class="cl-date">May 14, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Gemini AI assistant — full voice &amp; text overlay; speak naturally to create events, tasks, birthdays, or routines hands-free</li>
+          <li>Smart query support — ask "when is my dentist appointment?" and Gemini responds inline</li>
+          <li>Animated frosted-glass overlay with radial gradient, confirmation card, back-gesture safety, and first-launch onboarding</li>
+          <li>Per-routine journal with a Google Keep–style inline block editor — title + seamless body with headers, subheaders, checklists, and data grids all in one flowing document</li>
+          <li>Rich text formatting — Bold / Italic / Underline / Strikethrough toggles active while typing; font size (S/M/L/XL) and font family picker</li>
+          <li>Gemini journal organizer — Organize FAB reformats journal content into structured blocks; Gemini FAB on routines list creates routines from plain language</li>
+          <li>Search button on Routines screen — circular reveal + blur animation matching Agenda and MonthList; "Routine" type filter in search overlay</li>
+          <li>Seamless month header blend — header bar uses primaryContainer so scrolling month banners integrate with the top bar</li>
+          <li>Lint correctness pass — Compose state APIs, API level gating, permission guards, and intent filters corrected</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
           <div class="cl-version">v1.7.2.9</div>
           <div class="cl-date">May 12, 2026</div>
         </div>
@@ -658,20 +676,20 @@
         </ul></div>
       </div>
 
-      <div class="cl-entry">
-        <div class="cl-meta">
-          <div class="cl-version">v1.7.2.7</div>
-          <div class="cl-date">May 11, 2026</div>
-        </div>
-        <div class="cl-body"><ul>
-          <li>Event/Task/Birthday/Routine editors fully redesigned — editable title header, floating account picker, underlined date/time rows, and bottom sheet pickers</li>
-          <li>Tapping a date in split or month view now pre-fills that date in all creation screens</li>
-          <li>Fixed missing imports causing compile errors in Birthday and Task editor screens</li>
-        </ul></div>
-      </div>
-
       <!-- ── COLLAPSIBLE: rest ── -->
       <div class="changelog-collapse" id="cl-more">
+
+        <div class="cl-entry">
+          <div class="cl-meta">
+            <div class="cl-version">v1.7.2.7</div>
+            <div class="cl-date">May 11, 2026</div>
+          </div>
+          <div class="cl-body"><ul>
+            <li>Event/Task/Birthday/Routine editors fully redesigned — editable title header, floating account picker, underlined date/time rows, and bottom sheet pickers</li>
+            <li>Tapping a date in split or month view now pre-fills that date in all creation screens</li>
+            <li>Fixed missing imports causing compile errors in Birthday and Task editor screens</li>
+          </ul></div>
+        </div>
 
         <div class="cl-entry">
           <div class="cl-meta">
@@ -1044,7 +1062,7 @@
     </div><!-- /changelog-list -->
 
     <button class="changelog-toggle" id="cl-toggle" aria-expanded="false">
-      Show 22 more versions <span class="toggle-arrow">↓</span>
+      Show 23 more versions <span class="toggle-arrow">↓</span>
     </button>
 
   </div>
@@ -1107,7 +1125,7 @@
       } else {
         collapse.style.maxHeight = '0';
         toggle.classList.remove('open');
-        toggle.innerHTML = 'Show 22 more versions <span class="toggle-arrow">↓</span>';
+        toggle.innerHTML = 'Show 23 more versions <span class="toggle-arrow">↓</span>';
         // scroll back up to changelog heading after collapse
         document.getElementById('changelog').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
