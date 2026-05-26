@@ -519,7 +519,7 @@
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div class="hero-icon">📅</div>
-      <div class="hero-version">✦ Latest: v2.0</div>
+      <div class="hero-version">✦ Latest: v2.0.2</div>
       <h1>UltraCalendar</h1>
       <p>A Material 3 Android calendar that syncs with Google, tracks your routines, and puts everything on your home screen — exactly how you want it.</p>
       <div class="hero-badge">
@@ -636,6 +636,19 @@
       <!-- ── VISIBLE: latest 3 ── -->
       <div class="cl-entry">
         <div class="cl-meta">
+          <div class="cl-version">v2.0.2</div>
+          <div class="cl-date">May 26, 2026</div>
+        </div>
+        <div class="cl-body"><ul>
+          <li>Fixed holidays appearing on wrong/adjacent days — duplicate logic overhauled in RepeatHelper</li>
+          <li>Widgets now correctly follow the system dark/light theme automatically</li>
+          <li>Comprehensive widget scaling pass across all 8 widget types — better proportions on all screen sizes</li>
+          <li>Widget grid cells now respect available vertical space — no more overflow on compact layouts</li>
+        </ul></div>
+      </div>
+
+      <div class="cl-entry">
+        <div class="cl-meta">
           <div class="cl-version">v2.0</div>
           <div class="cl-date">May 14, 2026</div>
         </div>
@@ -661,18 +674,6 @@
           <li>Recipe pill labels always display in full — "Expressive" no longer truncated on narrow screens or large font scales</li>
           <li>Auto-size text in scheme selector pill — font shrinks to fit without clipping or word-wrap at any screen size or accessibility scale</li>
           <li>Fixed first-frame label bleed where text could briefly overflow segment bounds before layout settled</li>
-        </ul></div>
-      </div>
-
-      <div class="cl-entry">
-        <div class="cl-meta">
-          <div class="cl-version">v1.7.2.8</div>
-          <div class="cl-date">May 12, 2026</div>
-        </div>
-        <div class="cl-body"><ul>
-          <li>Color picker accuracy — picking red now produces red; scheme hue-rotation is now opt-in via a new recipe selector (Content / Vibrant / TonalSpot / Expressive)</li>
-          <li>Widget transparency slider now goes to 100% (was capped at 90%)</li>
-          <li>Wallpaper-aware text contrast — widget text auto-adjusts for readability when transparency is 50% or higher</li>
         </ul></div>
       </div>
 
